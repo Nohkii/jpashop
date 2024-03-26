@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter
 public class Order {
     @Id @GeneratedValue
-    @Column(name="id")
+    @Column(name="order_id")
     private  Long id;
 
     @ManyToOne
@@ -24,6 +24,7 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     private LocalDateTime orderDate;
